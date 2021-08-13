@@ -2,6 +2,8 @@ import 'package:circular_menu/circular_menu.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:line_icons/line_icon.dart';
+import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,18 +20,37 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       body: FabCircularMenu(
-        alignment: Alignment.center,
+        fabSize: 100,
+        fabOpenIcon: Icon(LineIcons.brain, color: Colors.pink[300], size: 50),
+        fabCloseIcon: Icon(LineIcons.brain, color: Colors.pink[300], size: 50),
+        ringDiameter: w * 0.8,
+        ringWidth: w * 0.2,
+        ringColor: colorScheme.primary,
         children: <Widget>[
-          IconButton(
-              icon: Icon(Icons.home),
-              onPressed: () {
-                print('Home');
-              }),
-          IconButton(
-              icon: Icon(Icons.favorite),
-              onPressed: () {
-                print('Favorite');
-              })
+          RawMaterialButton(
+            child: Icon(
+              LineIcons.infinity,
+              size: 35,
+              color: Color.fromARGB(255, 53, 183, 255),
+            ),
+            onPressed: () {},
+          ),
+          RawMaterialButton(
+            child: Icon(
+              LineIcons.flask,
+              size: 35,
+              color: Color.fromARGB(255, 112, 239, 222),
+            ),
+            onPressed: () {},
+          ),
+          RawMaterialButton(
+            child: Icon(
+              LineIcons.atom,
+              size: 35,
+              color: Color.fromARGB(255, 148, 117, 238),
+            ),
+            onPressed: () {},
+          ),
         ],
       ),
     );
