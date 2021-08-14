@@ -12,7 +12,6 @@ class FormulaTileWidget extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final charTheme = Theme.of(context).textTheme;
 
-    double size = MediaQuery.of(context).size.aspectRatio;
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
 
@@ -30,14 +29,14 @@ class FormulaTileWidget extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(colorScheme.primary),
         ),
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: size * 40),
+          padding: EdgeInsets.symmetric(vertical: h * 0.03),
           child: Row(
             children: [
               Text(settings.char,
                   style: charTheme.bodyText1!.copyWith(color: color)),
               Container(
-                padding: EdgeInsets.only(left: size * 40),
-                width: size * 450,
+                padding: EdgeInsets.only(left: h * 0.04),
+                width: w * 0.6,
                 child: Text(
                   settings.name,
                   overflow: TextOverflow.ellipsis,

@@ -11,7 +11,6 @@ class ContentTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    double size = MediaQuery.of(context).size.aspectRatio;
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
 
@@ -29,13 +28,13 @@ class ContentTileWidget extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(colorScheme.primary),
         ),
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: size * 40),
+          padding: EdgeInsets.symmetric(vertical: h * 0.03),
           child: Row(
             children: [
               Icon(settings.icon, color: color),
               Container(
-                padding: EdgeInsets.only(left: size * 40),
-                width: size * 450,
+                padding: EdgeInsets.only(left: w * 0.04),
+                width: w * 0.6,
                 child: Text(
                   settings.title,
                   overflow: TextOverflow.ellipsis,
