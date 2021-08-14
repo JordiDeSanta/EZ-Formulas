@@ -20,6 +20,7 @@ class _FormulaPageState extends State<FormulaPage> {
 
     double size = MediaQuery.of(context).size.aspectRatio;
     double h = MediaQuery.of(context).size.height;
+    double w = MediaQuery.of(context).size.width;
 
     return Scaffold(
       floatingActionButton: FloatingButton(Alignment(1.5, 0)),
@@ -42,24 +43,82 @@ class _FormulaPageState extends State<FormulaPage> {
       ),
       body: ListView(
         children: [
-          SvgPicture.asset(
-            formula.svgRoute,
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: h * 0.035),
+            child: SvgPicture.asset(
+              formula.svgRoute,
+              color: color,
+              fit: BoxFit.contain,
+              width: w * 0.8,
+            ),
           ),
-          /*_createParams(content, pageColor),
-          _result(content, pageColor, size),
-          SizedBox(height: size * 20),
-          if (banner == null && !content.bIsTriangle)
-            Container()
-          else
-            Container(
-              height: h * 0.2,
-              child: AdWidget(
-                ad: banner,
-              ),
-            )
-            */
+          //_createParams(formula, color),
         ],
       ),
+    );
+  }
+
+  Widget _createParams(FormulaButtonArguments args, Color pageColor) {
+    List<Widget> _params = [SizedBox(height: 20.0)];
+    double size = MediaQuery.of(context).size.aspectRatio;
+    double w = MediaQuery.of(context).size.width;
+
+    args.params.forEach(
+      (key, value) {
+        Widget _temp = Center(
+          child: Column(
+            children: [
+              Container(
+                width: w * 0.8,
+                child: TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: pageColor),
+                    ),
+                    labelText: key.name,
+                    labelStyle:
+                        TextStyle(color: pageColor, fontSize: size * 30),
+                  ),
+                  onChanged: (s) {
+                    if (s == '') {
+                      setState(() {
+                        args.params[key] = 0.0;
+                      });
+                    } else {
+                      setState(() {
+                        double v = double.parse(s);
+                        args.params[key] = v;
+                      });
+                    }
+                  },
+                ),
+              ),
+              if (key.med != null)
+                Container(
+                  width: w * 0.8,
+                  height: size * 100,
+                  child: DropdownButton(
+                    items: _items(key.med, size),
+                    value: key.selectedMed,
+                    onChanged: (v) {
+                      setState(() {
+                        key.selectedMed = v;
+                      });
+                    },
+                    style: TextStyle(color: pageColor),
+                  ),
+                ),
+              SizedBox(height: size * 40),
+            ],
+          ),
+        );
+        _params.add(_temp);
+      },
+    );
+
+    return Column(
+      children: _params,
     );
   }
 }
