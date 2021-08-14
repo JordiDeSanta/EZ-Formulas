@@ -1,3 +1,4 @@
+import 'package:ezformulas/src/pages/content.dart';
 import 'package:ezformulas/src/pages/course.dart';
 import 'package:ezformulas/src/pages/home.dart';
 import 'package:ezformulas/src/providers/utils.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         routes: {
           'home': (BuildContext context) => HomePage(),
           'course': (BuildContext context) => CoursePage(),
+          'content': (BuildContext context) => ContentPage(),
         },
         theme: ThemeData(
           appBarTheme: AppBarTheme(elevation: 0, centerTitle: true),

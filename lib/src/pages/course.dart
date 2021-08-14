@@ -46,7 +46,7 @@ class CoursePage extends StatelessWidget {
   }
 
   List<Widget> _createTiles(CourseArguments args, Color color, double h) {
-    List<Widget> contentTiles = [SizedBox(height: h * 0.1)];
+    List<Widget> contentTiles = [SizedBox(height: h * 0.025)];
 
     for (var content in args.contents) {
       final tempTile = ContentTileWidget(
