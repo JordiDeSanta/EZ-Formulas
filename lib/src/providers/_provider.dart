@@ -29,6 +29,8 @@ class FormulaArguments {
   String svgRoute;
   Map<Param, double> params;
   double Function(Map<Param, double> m) formula;
+  double selectedResultUnit;
+  Unit resultUnit;
 
   FormulaArguments({
     required this.char,
@@ -36,18 +38,20 @@ class FormulaArguments {
     required this.svgRoute,
     required this.params,
     required this.formula,
+    this.selectedResultUnit = 1,
+    required this.resultUnit,
   });
 }
 
 class Param {
   String name;
-  Unit med;
+  Unit? med;
   double selectedMed;
 
   Param({
     required this.name,
-    required this.med,
-    required this.selectedMed,
+    this.med,
+    this.selectedMed = 1,
   });
 
   double getValue(double input) {

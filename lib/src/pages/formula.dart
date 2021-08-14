@@ -1,4 +1,5 @@
 import 'package:ezformulas/src/providers/_provider.dart';
+import 'package:ezformulas/src/providers/units.dart';
 import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -52,13 +53,14 @@ class _FormulaPageState extends State<FormulaPage> {
               width: w * 0.8,
             ),
           ),
-          //_createParams(formula, color),
+          _createParams(formula, color),
+          _result(formula, color, size),
         ],
       ),
     );
   }
 
-  Widget _createParams(FormulaButtonArguments args, Color pageColor) {
+  Widget _createParams(FormulaArguments args, Color color) {
     List<Widget> _params = [SizedBox(height: 20.0)];
     double size = MediaQuery.of(context).size.aspectRatio;
     double w = MediaQuery.of(context).size.width;
@@ -71,14 +73,14 @@ class _FormulaPageState extends State<FormulaPage> {
               Container(
                 width: w * 0.8,
                 child: TextField(
+                  style: TextStyle(color: color),
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: pageColor),
+                      borderSide: BorderSide(color: color),
                     ),
                     labelText: key.name,
-                    labelStyle:
-                        TextStyle(color: pageColor, fontSize: size * 30),
+                    labelStyle: TextStyle(color: color, fontSize: size * 30),
                   ),
                   onChanged: (s) {
                     if (s == '') {
@@ -99,14 +101,14 @@ class _FormulaPageState extends State<FormulaPage> {
                   width: w * 0.8,
                   height: size * 100,
                   child: DropdownButton(
-                    items: _items(key.med, size),
+                    items: _items(key.med!, size),
                     value: key.selectedMed,
                     onChanged: (v) {
                       setState(() {
-                        key.selectedMed = v;
+                        key.selectedMed = v as double;
                       });
                     },
-                    style: TextStyle(color: pageColor),
+                    style: TextStyle(color: color),
                   ),
                 ),
               SizedBox(height: size * 40),
@@ -120,5 +122,58 @@ class _FormulaPageState extends State<FormulaPage> {
     return Column(
       children: _params,
     );
+  }
+
+  Widget _result(FormulaArguments args, Color color, double size) {
+    Widget _result;
+
+    _result = Container(
+      padding: EdgeInsets.only(top: size * 40),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Resultado: ' +
+                (args.formula(args.params) / args.selectedResultUnit)
+                    .toString(),
+            style: TextStyle(color: color),
+          ),
+          SizedBox(width: size * 20),
+          if (args.resultUnit != null)
+            DropdownButton(
+              elevation: 1,
+              items: _items(args.resultUnit, size),
+              value: args.selectedResultUnit,
+              onChanged: (v) {
+                setState(() {
+                  args.selectedResultUnit = v as double;
+                });
+              },
+              style: TextStyle(color: color),
+            ),
+          SizedBox(height: size * 20),
+        ],
+      ),
+    );
+
+    return _result;
+  }
+
+  List<DropdownMenuItem<double>> _items(Unit args, double size) {
+    final _tempList = <DropdownMenuItem<double>>[];
+
+    args.mults.forEach((key, value) {
+      final _tempItem = DropdownMenuItem<double>(
+        value: value,
+        child: Text(
+          key,
+          style: TextStyle(fontSize: size * 20),
+        ),
+      );
+
+      _tempList.add(_tempItem);
+    });
+
+    return _tempList;
   }
 }

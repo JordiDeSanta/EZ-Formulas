@@ -1,11 +1,10 @@
 import 'package:ezformulas/src/courses/math.dart';
 import 'package:ezformulas/src/courses/physics.dart';
 import 'package:ezformulas/src/providers/_provider.dart';
-import 'package:ezformulas/src/providers/utils.dart';
+import 'package:ezformulas/src/providers/utils.dart' as utils;
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:provider/provider.dart';
 
 class FloatingButton extends StatelessWidget {
   Alignment alignment;
@@ -16,8 +15,6 @@ class FloatingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     double w = MediaQuery.of(context).size.width;
-
-    final utils = Provider.of<Utils>(context);
 
     return FabCircularMenu(
       fabSize: w * 0.28,

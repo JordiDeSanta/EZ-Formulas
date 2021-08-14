@@ -1,5 +1,5 @@
 import 'package:ezformulas/src/providers/_provider.dart';
-import 'package:ezformulas/src/providers/utils.dart';
+import 'package:ezformulas/src/providers/utils.dart' as utils;
 import 'package:ezformulas/src/widgets/content_tile.dart';
 import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,6 @@ class CoursePage extends StatelessWidget {
     ));
 
     double h = MediaQuery.of(context).size.height;
-    final utils = Provider.of<Utils>(context);
     final args = ModalRoute.of(context)!.settings.arguments as CourseArguments;
 
     return Container(
