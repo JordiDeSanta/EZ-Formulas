@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
           'home': (BuildContext context) => HomePage(),
           'course': (BuildContext context) => CoursePage(),
           'content': (BuildContext context) => ContentPage(),
+          'formula': (BuildContext context) => HomePage(),
         },
         theme: ThemeData(
           appBarTheme: AppBarTheme(elevation: 0, centerTitle: true),

@@ -24,10 +24,11 @@ class ContentArguments {
 }
 
 class FormulaArguments {
-  Map<String, List>? formulas;
-  Color? tilesColor;
+  String name;
 
-  FormulaArguments({this.formulas, this.tilesColor});
+  FormulaArguments({
+    required this.name,
+  });
 }
 
 class FormulaButtonArguments {

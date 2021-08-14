@@ -34,12 +34,8 @@ class CoursePage extends StatelessWidget {
                 TextStyle(color: utils.colors[args.title], fontSize: h * 0.05),
           ),
         ),
-        body: Container(
-          child: SingleChildScrollView(
-            child: Column(
-              children: _createTiles(args, utils.colors[args.title]!, h),
-            ),
-          ),
+        body: ListView(
+          children: _createTiles(args, utils.colors[args.title]!, h),
         ),
       ),
     );

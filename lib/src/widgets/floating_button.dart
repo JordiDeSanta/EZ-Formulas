@@ -1,4 +1,5 @@
 import 'package:ezformulas/src/courses/math.dart';
+import 'package:ezformulas/src/courses/physics.dart';
 import 'package:ezformulas/src/providers/_provider.dart';
 import 'package:ezformulas/src/providers/utils.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
@@ -52,7 +53,9 @@ class FloatingButton extends StatelessWidget {
             size: 35,
             color: utils.colors['Física'],
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, 'course', arguments: physics);
+          },
         ),
       ],
     );
