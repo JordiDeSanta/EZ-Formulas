@@ -11,7 +11,11 @@ final physics = CourseArguments(
       title: 'Ondas',
       icon: Typicons.waves,
       formulas: [
-        FormulaArguments(name: 'Periódo'),
+        FormulaArguments(
+          char: 'T',
+          name: 'Periódo',
+          svgRoute: 'assets/formulas/physics/Periodo.svg',
+        ),
       ],
     ),
   ],

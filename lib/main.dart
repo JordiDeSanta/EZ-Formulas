@@ -1,5 +1,6 @@
 import 'package:ezformulas/src/pages/content.dart';
 import 'package:ezformulas/src/pages/course.dart';
+import 'package:ezformulas/src/pages/formula.dart';
 import 'package:ezformulas/src/pages/home.dart';
 import 'package:ezformulas/src/providers/utils.dart';
 import 'package:flutter/material.dart';
@@ -37,12 +38,13 @@ class MyApp extends StatelessWidget {
           'home': (BuildContext context) => HomePage(),
           'course': (BuildContext context) => CoursePage(),
           'content': (BuildContext context) => ContentPage(),
-          'formula': (BuildContext context) => HomePage(),
+          'formula': (BuildContext context) => FormulaPage(),
         },
-        theme: ThemeData(
+        theme: ThemeData.dark().copyWith(
           appBarTheme: AppBarTheme(elevation: 0, centerTitle: true),
           scaffoldBackgroundColor: colorScheme.background,
           primaryTextTheme: GoogleFonts.sansitaTextTheme(),
+          textTheme: GoogleFonts.ptSerifTextTheme(),
           colorScheme: colorScheme,
         ),
       ),

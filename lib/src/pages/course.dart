@@ -34,8 +34,14 @@ class CoursePage extends StatelessWidget {
                 TextStyle(color: utils.colors[args.title], fontSize: h * 0.05),
           ),
         ),
-        body: ListView(
-          children: _createTiles(args, utils.colors[args.title]!, h),
+        body: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: (overscroll) {
+            overscroll.disallowGlow();
+            return true;
+          },
+          child: ListView(
+            children: _createTiles(args, utils.colors[args.title]!, h),
+          ),
         ),
       ),
     );

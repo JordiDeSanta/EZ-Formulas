@@ -15,15 +15,16 @@ class FloatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
 
     final utils = Provider.of<Utils>(context);
 
     return FabCircularMenu(
-      fabSize: 100,
-      fabOpenIcon: Icon(LineIcons.brain, color: Colors.pink[300], size: 50),
-      fabCloseIcon: Icon(LineIcons.brain, color: Colors.pink[300], size: 50),
+      fabSize: w * 0.28,
+      fabOpenIcon:
+          Icon(LineIcons.brain, color: Colors.pink[300], size: w * 0.15),
+      fabCloseIcon:
+          Icon(LineIcons.brain, color: Colors.pink[300], size: w * 0.15),
       ringDiameter: w * 0.8,
       ringWidth: w * 0.2,
       ringColor: colorScheme.primary,
@@ -32,7 +33,7 @@ class FloatingButton extends StatelessWidget {
         RawMaterialButton(
           child: Icon(
             LineIcons.infinity,
-            size: 35,
+            size: w * 0.1,
             color: utils.colors['Matemáticas'],
           ),
           onPressed: () {
@@ -42,7 +43,7 @@ class FloatingButton extends StatelessWidget {
         RawMaterialButton(
           child: Icon(
             LineIcons.flask,
-            size: 35,
+            size: w * 0.1,
             color: utils.colors['Química'],
           ),
           onPressed: () {},
@@ -50,7 +51,7 @@ class FloatingButton extends StatelessWidget {
         RawMaterialButton(
           child: Icon(
             LineIcons.atom,
-            size: 35,
+            size: w * 0.1,
             color: utils.colors['Física'],
           ),
           onPressed: () {

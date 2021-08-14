@@ -24,10 +24,14 @@ class ContentArguments {
 }
 
 class FormulaArguments {
+  String char;
   String name;
+  String svgRoute;
 
   FormulaArguments({
+    required this.char,
     required this.name,
+    required this.svgRoute,
   });
 }
 

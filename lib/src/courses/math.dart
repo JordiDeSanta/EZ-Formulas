@@ -7,6 +7,6 @@ import 'package:typicons_flutter/typicons_flutter.dart';
 final math = CourseArguments(
   title: 'Matemáticas',
   contents: [
-    ContentArguments(title: 'Números', icon: Typicons.pi, formulas: []),
+    //ContentArguments(title: 'Números', icon: Typicons.pi, formulas: []),
   ],
 );

@@ -41,17 +41,21 @@ class _ContentPageState extends State<ContentPage> {
           toolbarHeight: h * 0.1,
           foregroundColor: Colors.transparent,
         ),
-        body: ListView(
-          children: createFormulas(content, color, size),
+        body: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: (overscroll) {
+            overscroll.disallowGlow();
+            return true;
+          },
+          child: ListView(
+            children: createFormulas(content, color, h),
+          ),
         ),
       ),
     );
   }
 
-  List<Widget> createFormulas(ContentArguments args, Color color, double size) {
-    double h = MediaQuery.of(context).size.height;
-
-    List<Widget> contentTiles = [];
+  List<Widget> createFormulas(ContentArguments args, Color color, double h) {
+    List<Widget> contentTiles = [SizedBox(height: h * 0.025)];
 
     args.formulas.forEach((f) {
       final _temp = FormulaTileWidget(settings: f, color: color);
