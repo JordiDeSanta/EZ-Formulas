@@ -1,8 +1,5 @@
-import 'package:circular_menu/circular_menu.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,6 +23,7 @@ class _HomePageState extends State<HomePage> {
         ringDiameter: w * 0.8,
         ringWidth: w * 0.2,
         ringColor: colorScheme.primary,
+        alignment: Alignment.center,
         children: <Widget>[
           RawMaterialButton(
             child: Icon(
