@@ -2,31 +2,21 @@ import 'package:ezformulas/src/providers/units.dart';
 import 'package:flutter/material.dart';
 
 class CourseArguments {
-  String? title;
-  Color? color;
-  Color? contentsColor;
-  ImageProvider? img;
-  String? route;
-  List<ContentArguments>? contents;
+  String title;
+  List<ContentArguments> contents;
 
-  CourseArguments(
-      {this.title,
-      this.color,
-      this.img,
-      this.route,
-      this.contents,
-      this.contentsColor});
+  CourseArguments({
+    required this.title,
+    required this.contents,
+  });
 }
 
 class ContentArguments {
-  String? title;
-  ImageProvider? img;
-  String? route;
-  FormulaArguments? formulas;
-  Color? ftColor;
+  String title;
 
-  ContentArguments(
-      {this.title, this.img, this.route, this.formulas, this.ftColor});
+  ContentArguments({
+    required this.title,
+  });
 }
 
 class FormulaArguments {
