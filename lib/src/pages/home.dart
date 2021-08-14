@@ -1,7 +1,5 @@
 import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
